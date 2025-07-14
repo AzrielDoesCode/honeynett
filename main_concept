@@ -1,0 +1,34 @@
+import subprocess, time, rich
+from rich.table import Table
+from rich.live import Live
+
+HPS = {
+    "SSH" : ("hp_ssh.py",  2223),
+    "HTTP": ("hp_http.py", 8080),
+    "FTP" : ("hp_ftp.py",  2121),
+    "RAW" : ("hp_tcp.py",  9001)
+}
+
+procs = {}
+for name, (script, _) in HPS.items():
+    procs[name] = subprocess.Popen(["python3", script])
+
+def status_row(name, port):
+    proc = procs[name]
+    return [name, str(port),
+            "RUNNING" if proc.poll() is None else "DOWN"]
+
+def build_table():
+    t = Table("Honeypot", "Port", "State", title="HoneyTrail Dashboard")
+    for name, (_, port) in HPS.items():
+        t.add_row(*status_row(name, port))
+    return t
+
+with Live(build_table(), refresh_per_second=1) as live:
+    try:
+        while True:
+            live.update(build_table())
+            time.sleep(1)
+    except KeyboardInterrupt:
+        for p in procs.values():
+            p.terminate()
