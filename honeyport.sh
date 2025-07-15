@@ -5,8 +5,7 @@ PORTS=(2223 3306 21 443 8080)
 
 function enable_firewall() {
     echo "[+] Enabling firewall..."
-    sudo firewall-cmd --permanent --set-default-zone=public
-    sudo systemctl start firewalld
+    sudo firewall-cmd --set-default-zone=public    sudo systemctl start firewalld
     sudo firewall-cmd --reload
     echo "[✓] Firewall enabled."
 }
