@@ -152,6 +152,7 @@ def client_handle(client, addr, username, password, tarpit=False):
 
         standard_banner = "Welcome to Ubuntu 22.04 LTS (Jammy Jellyfish)!\r\n\r\n"
         
+        
         try:
             # Endless Banner: If tarpit option is passed, then send 'endless' ssh banner.
             if tarpit:
