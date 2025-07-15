@@ -200,12 +200,12 @@ def honeypot(address, port, username, password):
             ssh_honeypot_thread.start()
 
         except KeyboardInterrupt:
-            print("\n[!] Honeypot shutting down...")dddd
+            print("\n[!] Honeypot shutting down...")
             socks.close()
-            breakdd
+            break
         except Exception as error:
             print(error)
 
         
-honeypot('127.0.0.1', 2223, 'username', 'password')
+honeypot('0.0.0.0', 2223, 'username', 'password')
 

@@ -6,3 +6,14 @@ Command b'\x03\x03'executed by 127.0.0.1
 Command b''executed by 127.0.0.1
 Command b'ls'executed by 127.0.0.1
 Client 127.0.0.1 attempted connection with username: username, password: password
+Client 127.0.0.1 attempted connection with username: username, password: password
+Command b'quit'executed by 127.0.0.1
+Client 192.168.1.11 attempted connection with username: username, password: password
+Client 192.168.1.49 attempted connection with username: username, password: password
+Command b'whoami'executed by 192.168.1.49
+Command b'ls'executed by 192.168.1.49
+Command b'ip'executed by 192.168.1.11
+Client 192.168.1.11 attempted connection with username: username, password: password
+Command b'ls'executed by 192.168.1.11
+Command b'whoma\x7f\x7fam\x7f\x7f\x7f\x7f\x7f'executed by 192.168.1.11
+Command b'whoami'executed by 192.168.1.11
